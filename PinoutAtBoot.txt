@@ -1,0 +1,19 @@
+Here’s a summary of how all the ESP8266 GPIOs behave. Pictures of the analyzer/scope traces are shown below.
++-------+---------------------------------------------+--------------------------------------------------+----------------------------------------------------+ 	
+|NodeMCU ESP8266 Behaviour                            | Behaviour                                        | Behaviour                                          |
+|GPIO   |GPIO   | Flash Mode                          | Dummy Arduino App                                | Arduino Set GPIOs Low                              |
++-------+-------+-------------------------------------+--------------------------------------------------+----------------------------------------------------+ 	
+|D0 	| 16    | High 	                              | High during boot, falls after ~110ms (to ~1V?)   | High during boot, falls after ~110ms (to ~1V)      |
+|D1 	| 5     | Low 	                              | Low 	                                         | Low                                                |
+|D2 	| 4     | Low 	                              | Low 	                                         | Low                                                |
+|D3 	| 0     | Low then oscillates 	              | Varies, stabilizes high after ~100ms 	         | Varies, stabilizes low after ~110ms                |
+|D4 	| 2     | Varies, stabilizes high after ~60ms | Varies, stabilizes high after ~70ms 	         | Varies, stabilizes low after ~110ms                |
+|D5 	| 14    | High 	                              | High, then low after ~110ms 	                 | High, then low after ~110ms                        |
+|D6 	| 12    | High 	                              | High, then low after ~110ms 	                 | High, then low after ~110ms                        |
+|D7 	| 13    | High 	                              | High, then low after ~110ms 	                 | High, then low after ~110ms                        |
+|D8 	| 15    | Low 	                              | Low, with glitch ~110ms 	                     | Low, with glitch ~110ms                            |
+|D9 	| 3     | Low 	                              | Low until ~50ms then high 	                     | Low until ~50ms then high until ~110ms then low    |
+|D10    | 1     | Low 	                              | Low until ~50ms then high 	                     | Low until ~50ms then high until ~110ms then low    |
++-------+-------+-------------------------------------+--------------------------------------------------+----------------------------------------------------+ 	
+
+Conclusion: There are a few pins safe GPIOs I can use to drive relays if I don’t want them to operate autonomously at boot.:-
