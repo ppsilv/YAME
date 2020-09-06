@@ -1,0 +1,18 @@
+To download firmware to ESP8266 the pins Rst and GPIO0 must be manipulated
+
+Auto program circuit
+
++-------------------------+
+| DTR | RTS | RST | GPIO0 |
++-------------------------+
+|  1  |  1  |  1  |  1    | 
++-------------------------+
+|  0  |  0  |  1  |  1    | 
++-------------------------+
+|  1  |  0  |  0  |  1    | 
++-------------------------+
+|  0  |  1  |  1  |  0    | 
++-------------------------+
+
+If you make a circuit where DTR and RTS combination generate the RST and GPIO0 as shown in table above.
+
